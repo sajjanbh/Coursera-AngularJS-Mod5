@@ -17,7 +17,7 @@ function SignUpController(SignUpService) {
   $ctrl.menuMessage = false;
   $ctrl.saveMessage = false;
 
-  $ctrl.signUp = function() {
+  $ctrl.validateUserMenu = function() {
     var promise = SignUpService.signUp($ctrl.menuNumber);
 
     promise.then(function (response) {
@@ -26,27 +26,33 @@ function SignUpController(SignUpService) {
       // Check if user entered menu number isn't valid
       if ($ctrl.menu.menu_items.length == 0) {
         $ctrl.menuMessage = true;
-        $ctrl.saveMessage = false;
       } else {
         $ctrl.menuMessage = false;
-        //console.log($ctrl.menu);
-        var userInfo = {
-          firstname: $ctrl.firstname,
-          lastname: $ctrl.lastname,
-          email: $ctrl.email,
-          phone: $ctrl.phone,
-          menuNumber: $ctrl.menuNumber
-        };
-
-        if( SignUpService.saveUserInfo(userInfo) ) {
-          $ctrl.signedUp = true;
-          $ctrl.saveMessage = true;
-        }
       }
     })
     .catch(function (error) {
-      $ctrl.message = "Something went terribly wrong.";
+      console.log("Something went terribly wrong.");
     });
+  };
+
+  $ctrl.signUp = function() {
+    $ctrl.saveMessage = false;
+    if ($ctrl.menuMessage == false) {
+      // create object of user's info
+      var userInfo = {
+        firstname: $ctrl.firstname,
+        lastname: $ctrl.lastname,
+        email: $ctrl.email,
+        phone: $ctrl.phone,
+        menuNumber: $ctrl.menuNumber
+      };
+
+      // Save user's info to app service
+      if( SignUpService.saveUserInfo(userInfo) ) {
+        $ctrl.signedUp = true;
+        $ctrl.saveMessage = true;
+      }
+    }
   }
 }
 })();
