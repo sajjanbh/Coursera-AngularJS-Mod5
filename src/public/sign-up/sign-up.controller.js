@@ -15,6 +15,7 @@ function SignUpController(SignUpService) {
 
   $ctrl.signedUp = false;
   $ctrl.menuMessage = false;
+  $ctrl.menuOK = false;
   $ctrl.saveMessage = false;
 
   $ctrl.validateUserMenu = function() {
@@ -27,6 +28,7 @@ function SignUpController(SignUpService) {
       if ($ctrl.menu.menu_items.length == 0) {
         $ctrl.menuMessage = true;
       } else {
+        $ctrl.menuOK = true;
         $ctrl.menuMessage = false;
       }
     })
@@ -37,7 +39,7 @@ function SignUpController(SignUpService) {
 
   $ctrl.signUp = function() {
     $ctrl.saveMessage = false;
-    if ($ctrl.menuMessage == false) {
+    if ($ctrl.menuOK == true) {
       // create object of user's info
       var userInfo = {
         firstname: $ctrl.firstname,
