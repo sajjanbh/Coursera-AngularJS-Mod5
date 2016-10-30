@@ -1,7 +1,7 @@
 <div class="container" ng-controller="MyInfoController as myInfoCtrl">
   <div ng-if="myInfoCtrl.signedUp">
     <h1>My INFO </h1>
-    <table>
+    <table id="my-info">
       <tbody>
         <tr>
           <td>Full Name:</td>
@@ -21,8 +21,20 @@
         </tr>
       </tbody>
     </table>
+
+    <div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
+      <a ui-sref="public.menuitems({category: myInfoCtrl.myinfo.menuNumber})">
+        <div class="category-tile">
+          <img width="200" height="200" ng-src="images/menu/{{myInfoCtrl.myinfo.menuNumber}}/{{myInfoCtrl.myinfo.menuNumber}}.jpg" alt="{{myInfoCtrl.category.name}}">
+          <span>{{myInfoCtrl.category.name}}</span>
+        </div>
+      </a>
+    </div>
   </div>
   <span ng-if="!myInfoCtrl.signedUp">
-    Not Signed Up yet! <a ui-sref="public.signup"> Sign Up now </a>
+    Not Signed Up yet!
+    <a ui-sref="public.signup">
+      <span>Sign Up now </span>
+    </a>
   </span>
 </div>

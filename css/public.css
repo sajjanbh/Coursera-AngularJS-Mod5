@@ -192,3 +192,25 @@ h3.menu-item-title {
 .ng-touched.ng-invalid {
   border: 2px red solid;
 }
+
+/* My Info table */
+table#my-info {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#my-info tr {
+  border-bottom: 1px solid #111;
+  font-weight: bold;
+}
+
+#my-info tr td:nth-child(1) {
+  padding: 4px 10px;
+  text-align: right;
+}
+
+#my-info tr td:nth-child(2) {
+  padding: 4px 10px;
+  color: yellow;
+  text-align: left;
+}

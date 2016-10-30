@@ -11,7 +11,15 @@
 
     $ctrl.signedUp = SignUpService.getSignUpStatus();
 
-    $ctrl.myinfo = SignUpService.getMyInfo();
+    // Check if user is signed up
+    if ($ctrl.signedUp) {
+      $ctrl.myinfo = SignUpService.getMyInfo();
 
+      var promise = SignUpService.signUp($ctrl.myinfo.menuNumber);
+
+      promise.then(function (response) {
+        $ctrl.category = response.data.category;
+      });
+    }
   }
 })();

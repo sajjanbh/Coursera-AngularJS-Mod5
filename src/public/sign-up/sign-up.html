@@ -39,11 +39,11 @@
       <div class="form-group">
         <input class="form-control" type="text" name="menuNumber" placeholder="Your Favorite Menu Short Name"
           ng-model="signup.menuNumber" required >
-        <span ng-if="signup.menuMessage">No such menu number exists.</span>
+        <span ng-if="signup.menuMessage" style="color:red;">No such menu number exists.</span>
       </div>
       <button type="submit" class="btn btn-default"
         ng-disabled="signupForm.$invalid" ng-click="signup.signUp()">Sign Up</button>
-    </form>
-    <span ng-if="signup.saveMessage"> Your Information has been saved. </span.
+    </form> <br />
+    <span ng-if="signup.saveMessage" style="color: green;border: 1px solid yellow;"> Your Information has been saved. </span.
   </fieldset>
 </div>
