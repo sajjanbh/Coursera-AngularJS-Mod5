@@ -18,7 +18,7 @@
       var promise = SignUpService.signUp($ctrl.myinfo.menuNumber);
 
       promise.then(function (response) {
-        $ctrl.category = response.data.category;
+        $ctrl.item = response.data;
       });
     }
   }

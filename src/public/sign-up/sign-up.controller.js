@@ -23,17 +23,19 @@ function SignUpController(SignUpService) {
 
     promise.then(function (response) {
       $ctrl.menu = response.data;
-
+      $ctrl.menuOK = true;
+      $ctrl.menuMessage = false;
       // Check if user entered menu number isn't valid
-      if ($ctrl.menu.menu_items.length == 0) {
-        $ctrl.menuMessage = true;
-      } else {
-        $ctrl.menuOK = true;
-        $ctrl.menuMessage = false;
-      }
+      // if ($ctrl.menu.menu_items.length == 0) {
+        // $ctrl.menuMessage = true;
+      // } else {
+      //   $ctrl.menuOK = true;
+      //   $ctrl.menuMessage = false;
+      // }
     })
     .catch(function (error) {
       console.log("Something went terribly wrong.");
+      $ctrl.menuMessage = true;
     });
   };
 

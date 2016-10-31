@@ -17,7 +17,8 @@ function SignUpService($http, ApiPath) {
       config.params = {'category': category};
     }
 
-    return $http.get(ApiPath + '/menu_items.json', config);
+    //return $http.get(ApiPath + '/menu_items.json', config);
+    return $http.get(ApiPath + '/menu_items/' + category + '.json');
   };
 
   service.saveUserInfo = function(userInfo) {
