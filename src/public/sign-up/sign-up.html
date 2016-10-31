@@ -15,7 +15,7 @@
         <input class="form-control" type="text" name="lastname" placeholder="Last Name"
           ng-model="signup.lastname" required minlength="4" ng-maxlength="12" >
         <span
-          ng-if="(signupForm.lastname.$error.minlength || signupForm.lastname.$error.required) && signup.lastname.$touched">
+          ng-if="(signupForm.lastname.$error.minlength || signupForm.lastname.$error.required) && signupForm.lastname.$touched">
           Last Name must be at least 4 characters long
         </span>
       </div>
@@ -23,7 +23,7 @@
         <input class="form-control" type="email" name="email" placeholder="Email Address"
           ng-model="signup.email" required minlength="7" ng-maxlength="30" >
         <span
-          ng-if="signupForm.email.$error.required && signupForm.email.$touched">
+          ng-if="(signupForm.email.$error.minlength ||signupForm.email.$error.required) && signupForm.email.$touched">
           Must be a valid email address: user@example.com format
         </span>
       </div>
