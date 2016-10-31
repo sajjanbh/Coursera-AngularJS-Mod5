@@ -207,6 +207,7 @@ table#my-info {
 #my-info tr td:nth-child(1) {
   padding: 4px 10px;
   text-align: right;
+  width: 20%;
 }
 
 #my-info tr td:nth-child(2) {
